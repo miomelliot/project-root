@@ -1,0 +1,11 @@
+# Используем базовый образ Nginx для веб-приложений
+FROM nginx:latest
+
+# Копируем содержимое сборки Flutter Web в директорию Nginx
+COPY build/web /usr/share/nginx/html
+
+# Указываем порт
+EXPOSE 80
+
+# Запуск Nginx
+CMD ["nginx", "-g", "daemon off;"]
